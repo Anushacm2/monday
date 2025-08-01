@@ -1,17 +1,35 @@
-package miniproject;
+package streamapi;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import java.util.stream.Collectors;
 
 public class Main {
+	
 
-		 public static void main(String[] args) {
-		     // Create Author Object
-		     Author author = new Author("J.K. Rowling", "jkrowling@example.com", 'F');
+	public static void main(String[] args) {
 
-		     // Create Book Object
-		     Book book = new Book("Harry Potter", author, 499.99, 100);
+	List<Employee> li=new ArrayList<Employee>();
 
-		     // Print Book Details
-		     System.out.println(book.toString());
-		 }
-		}
+	li.add(new Employee (100, "John", 18000));
 
+	li.add(new Employee(200, "Varun", 10000));
+
+	li.add(new Employee (300, "Riya", 22000));
+	List<Employee> li2=li.stream().filter(emp -> emp.salary > 15000)
+
+	.collect(Collectors.toList());
+
+	for (Employee employee: li2) {
+
+	System.out.println(employee.name);
+
+	}
+
+	}
+
+	
+
+	}
 
